@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backyard Players, Inc. — Oakland Community Theater</title>
+  <meta name="description" content="Backyard Players, Inc. is a volunteer-run community theater in Oakland, CA producing one high-quality outdoor play each year in a 60-seat backyard venue." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;   /* slate-900 */
+      --card: #111827; /* gray-900 */
+      --muted: #94a3b8;/* slate-400 */
+      --text: #e5e7eb; /* gray-200 */
+      --accent: #38bdf8;/* sky-400 */
+      --accent-2: #a78bfa;/* violet-400 */
+      --ring: rgba(56,189,248,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 90% -10%, rgba(168,85,247,.08), transparent),
+                  radial-gradient(900px 600px at -10% 20%, rgba(56,189,248,.08), transparent), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(15,23,42,.7); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing: .4px; font-size: 1.05rem; }
+    .brand span { color: var(--accent-2); }
+    .brand img { height:28px; width:auto; border-radius:6px; border:1px solid rgba(148,163,184,.25); }
+    .menu { display: flex; gap: 16px; }
+    .menu a { color: var(--text); opacity: .9; font-weight: 600; }
+
+    /* Hero */
+    .hero { padding: 64px 0 40px; display: grid; gap: 20px; align-items: center; }
+    .hero h1 { font-size: clamp(1.8rem, 2.8vw + 1rem, 3rem); line-height: 1.1; margin: 0 0 8px; }
+    .hero p { color: var(--muted); margin: 0 0 18px; max-width: 60ch; }
+    .cta { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1020; font-weight: 800; padding: 12px 16px; border-radius: 12px; box-shadow: 0 10px 30px rgba(56,189,248,.25); }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    h2 { font-size: clamp(1.2rem, 1.2vw + 1rem, 2rem); margin: 0 0 12px; }
+    .sub { color: var(--muted); margin-top: -4px; margin-bottom: 24px; }
+
+    /* Cards */
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+    .card { grid-column: span 12; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(148,163,184,.15); border-radius: 16px; padding: 18px; box-shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 10px 30px rgba(0,0,0,.25); }
+    .card h3 { margin: 6px 0 6px; font-size: 1.1rem; }
+    .card p { color: var(--muted); margin: 0 0 12px; }
+    .row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    .pill { display:inline-block; background: rgba(167,139,250,.15); color: #ddd7ff; padding: 4px 10px; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .2px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(148,163,184,.2); color: var(--text); font-weight: 700; }
+    .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+
+    /* Media */
+    .media { aspect-ratio: 16/9; width: 100%; background: #0b1020; border-radius: 12px; border: 1px solid rgba(148,163,184,.2); display: block; object-fit: cover; }
+
+    /* Footer */
+    footer { padding: 36px 0 60px; color: var(--muted); border-top: 1px solid rgba(148,163,184,.15); margin-top: 40px; }
+    .footgrid { display: grid; gap: 10px; }
+
+    /* Responsive */
+    @media (min-width: 700px) {
+      .row { grid-template-columns: 1.2fr 1fr; }
+      .card { grid-column: span 6; }
+      .footgrid { grid-template-columns: 1fr auto; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="https://drive.google.com/uc?export=view&id=1nLObTk7714zOOssRCqlLTA4qlTAv5wjL" alt="Backyard Players logo" />
+        <span>Backyard <span>Players</span>, Inc.</span>
+      </div>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#history">History</a>
+        <a href="#productions">Productions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div>
+        <h1>Oakland’s volunteer-run backyard theater.</h1>
+        <p>We produce one high-quality outdoor play each year in a 60-seat backyard venue—blending professional-level artistry with the warmth of a family gathering.</p>
+        <a class="cta" href="#productions" aria-label="Jump to productions">See our productions →</a>
+      </div>
+    </section>
+
+    <section id="mission">
+      <h2>Mission</h2>
+      <p class="sub">Connection through thoughtful communication to deepen relationships, tell compelling stories, bring the community together, and—above all—have fun.</p>
+      <div class="card">
+        <p>Backyard Players, Inc. is a group of unique, caring, and creative individuals who come together to imagine, develop, and produce live outdoor theatrical productions for family, friends, and community members. We believe that theater can be joyful, local, and accessible. By producing professional-quality performances in an intimate backyard setting, we make the experience of live theater personal and affordable while strengthening neighborhood bonds through creativity and laughter.</p>
+      </div>
+    </section>
+
+    <section id="history">
+      <h2>Background</h2>
+      <p class="sub">Founded in 2022 by six friends who met performing musical theater in Oakland.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Our Story</h3>
+          <p>What began as a one-off backyard show has grown into a beloved neighborhood tradition. We design and build our own sets, operate with all-volunteer casts and crews—often family members—and conclude each performance with shared food and conversation.</p>
+        </article>
+        <article class="card">
+          <h3>Where We Perform</h3>
+          <p>An intimate, tree-lined backyard seats ~60 guests per performance. Thanks to in-kind professional lighting and seating—and our own microphones and speakers—we deliver high production value in a welcoming space.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="productions">
+      <h2>Productions</h2>
+      <p class="sub">Highlights from recent seasons. Photos and additional clips can be added anytime.</p>
+
+      <div class="grid">
+        <!-- 2025 -->
+        <article class="card" aria-labelledby="prod-2025">
+          <div class="row">
+            <div>
+              <span class="pill">2025</span>
+              <h3 id="prod-2025"><em>Almost, Maine</em> — John Cariani</h3>
+              <p>Vignettes of love and loss under the northern lights. Backyard Players’ 2025 spring production in our Oakland venue.</p>
+              <div class="btns">
+                <a class="btn" href="https://www.youtube.com/watch?v=xwxflrRDb3g&t=18s" target="_blank" rel="noopener">▶ Watch video</a>
+                <a class="btn" href="#" aria-disabled="true" title="Add a gallery link for production photos">🖼️ Add photo gallery</a>
+              </div>
+            </div>
+            <div>
+              <a href="https://www.youtube.com/watch?v=xwxflrRDb3g&t=18s" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/xwxflrRDb3g/hqdefault.jpg" alt="Almost, Maine (2025) – video thumbnail" class="media"/>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2024 -->
+        <article class="card" aria-labelledby="prod-2024">
+          <div class="row">
+            <div>
+              <span class="pill">2024</span>
+              <h3 id="prod-2024"><em>The Play That Goes Wrong</em> — Shields, Sayer & Lewis</h3>
+              <p>Controlled chaos, impeccable timing, and huge laughs in our 2024 season favorite. Link photos or clips for this show.</p>
+              <div class="btns">
+                <a class="btn" href="https://drive.google.com/uc?export=view&id=1dH7JZYOO5PpCFfJhlkLpgJTQd8z67Y7W" target="_blank" rel="noopener">🖼️ View photo</a>
+                <a class="btn" href="#" aria-disabled="true">▶ Add video link</a>
+              </div>
+            </div>
+            <div>
+              <img src="https://drive.google.com/uc?export=view&id=1dH7JZYOO5PpCFfJhlkLpgJTQd8z67Y7W" alt="Cast photo — The Play That Goes Wrong (2024)" class="media"/>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2023 -->
+        <article class="card" aria-labelledby="prod-2023">
+          <div class="row">
+            <div>
+              <span class="pill">2023</span>
+              <h3 id="prod-2023"><em>All in the Timing</em> — David Ives</h3>
+              <p>Smart, fast, and funny one-acts that launched our backyard tradition.</p>
+              <div class="btns">
+                <a class="btn" href="https://drive.google.com/uc?export=view&id=1FUtP1YWdbDxQSWezYzC_2xKnjSdKfH9B" target="_blank" rel="noopener">🖼️ View poster</a>
+                <a class="btn" href="#" aria-disabled="true">▶ Add video link</a>
+              </div>
+            </div>
+            <div>
+              <img src="https://drive.google.com/uc?export=view&id=1FUtP1YWdbDxQSWezYzC_2xKnjSdKfH9B" alt="Poster — All in the Timing (2023)" class="media"/>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p><strong>Email:</strong> <a href="mailto:thannimal@gmail.com">thannimal@gmail.com</a></p>
+        <p><strong>Location:</strong> Oakland, California</p>
+        <p class="sub">Press & grants: media kit and additional materials available upon request.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footgrid">
+      <div>© <span id="year"></span> Backyard Players, Inc. • Volunteer‑run community theater</div>
+      <div>Site by Backyard Players</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
