@@ -42,17 +42,34 @@
     .brand span { color: var(--accent-2); }
     .brand img { height:28px; width:auto; border-radius:6px; border:1px solid rgba(148,163,184,.25); }
     .brand-centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      text-align: center;
       width: 100%;
-      padding: 24px 0;
+      padding: 32px 0 16px;
     }
     
     .brand-centered img {
-      height: 120px; /* adjust size here */
+      height: 140px; /* adjust size here if needed */
       width: auto;
-      display: block;
-      margin: 0 auto;
+      margin-bottom: 12px;
     }
+    
+    .brand-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      margin: 0;
+      color: #e5e7eb; /* light gray */
+    }
+.brand-subtitle {
+  font-size: 1rem;
+  color: #94a3b8; /* slate-400 */
+  margin: 4px 0 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
     .menu { display: flex; gap: 16px; }
     .menu a { color: var(--text); opacity: .9; font-weight: 600; }
 
@@ -98,6 +115,8 @@
     <div class="wrap nav">
       <div class="brand brand-centered">
         <img src="BYP%20Logo.jpg" alt="Backyard Players logo" />
+        <h1 class="brand-title">Backyard Players, Inc.</h1>
+        <p class="brand-subtitle">Oakland’s volunteer-run backyard theater</p>
       </div>
       <nav class="menu" aria-label="Main navigation">
         <a href="#mission">Mission</a>
